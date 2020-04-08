@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Gateways Local">
+    <output-path>$PROJECT_DIR$/out/artifacts/Gateways</output-path>
+    <root id="archive" name="Gateways.jar">
+      <element id="module-output" name="Gateways" />
+    </root>
+  </artifact>
+</component>

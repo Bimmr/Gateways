@@ -1,0 +1,5 @@
+name: Gateways
+version: 1.0-SNAPSHOT
+main: com.bimmr.gateways.Gateways
+api-version: 1.13
+softdepend: [BimmCore]

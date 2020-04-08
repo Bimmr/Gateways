@@ -1,0 +1,5 @@
+name: Gateways
+version: ${project.version}
+main: com.bimmr.gateways.Gateways
+api-version: 1.13
+softdepend: [BimmCore]
