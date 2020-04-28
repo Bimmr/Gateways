@@ -1,25 +1,14 @@
 package com.bimmr.gateways;
 
-import me.bimmr.bimmcore.Coords;
-import me.bimmr.bimmcore.Scroller;
-import me.bimmr.bimmcore.StringUtil;
-import me.bimmr.bimmcore.events.message.FancyClickEvent;
-import me.bimmr.bimmcore.events.timing.TimedEvent;
+import me.bimmr.bimmcore.gui.book.Book;
 import me.bimmr.bimmcore.items.Items;
-import me.bimmr.bimmcore.menus.Book;
-import me.bimmr.bimmcore.messages.ActionBar;
-import me.bimmr.bimmcore.messages.FancyMessage;
-import me.bimmr.bimmcore.messages.Message;
-import me.bimmr.bimmcore.messages.MessageDisplay;
+import me.bimmr.bimmcore.messages.fancymessage.FancyClickEvent;
+import me.bimmr.bimmcore.messages.fancymessage.FancyMessage;
+import me.bimmr.bimmcore.misc.Coords;
 import me.bimmr.bimmcore.scoreboard.Board;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
+import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -40,11 +29,10 @@ import java.util.List;
 
 public final class Gateways extends JavaPlugin implements Listener {
 
-    private ItemStack gateWayItemStack = new ItemStack(Material.HEART_OF_THE_SEA);
-    private NamespacedKey gateWayItemNamespace = new NamespacedKey(this, "gateway_item");
-
     private static List<Gateway> gateways;
     private static Plugin instance;
+    private ItemStack gateWayItemStack = new ItemStack(Material.HEART_OF_THE_SEA);
+    private NamespacedKey gateWayItemNamespace = new NamespacedKey(this, "gateway_item");
 
     public static List<Gateway> getGateways() {
         return gateways;

@@ -1,7 +1,10 @@
 package com.bimmr.gateways;
 
-import me.bimmr.bimmcore.Coords;
-import org.bukkit.*;
+import me.bimmr.bimmcore.misc.Coords;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -65,7 +68,70 @@ public class Gateway {
     }
 
     /**
+     * Cehck if player is facing direction to use X Axis with Gateway
+     *
+     * @param player
+     * @return
+     */
+    static boolean xAxis(Player player) {
+        int degrees = (Math.round(player.getLocation().getYaw()) + 270) % 360;
+        return ((degrees > 67 && degrees <= 112) || (degrees > 247 && degrees <= 292));
+    }
+
+    /**
+     * Get Destination from item's lore
+     *
+     * @param itemStack
+     * @return
+     */
+    static Coords getDestination(ItemStack itemStack) {
+        if (itemStack != null && itemStack.hasItemMeta() && itemStack.getItemMeta().hasLore()) {
+            String loreLine = itemStack.getItemMeta().getLore().get(getSelectedLine(itemStack.getItemMeta().getLore()));
+            String loc = loreLine.substring(6, loreLine.length() - 4);
+            return new Coords(loc);
+        }
+        return null;
+    }
+
+    /**
+     * Get selected line by looking for the tags
+     *
+     * @param lore
+     * @param next
+     * @return
+     */
+    static List<String> setSelectedLine(List<String> lore, int next) {
+        int selected = getSelectedLine(lore);
+
+        if (selected != next) {
+            if (selected >= 0) {
+                lore.add(selected + 1, lore.get(selected).substring(4, lore.get(selected).length() - 4));
+                lore.remove(selected);
+            }
+            lore.add(next + 1, ChatColor.AQUA + "[ " + lore.get(next) + ChatColor.AQUA + " ]");
+            lore.remove(next);
+        }
+        return lore;
+    }
+
+    /**
+     * Get the index of the selected line by looking for the tags
+     *
+     * @param lore
+     * @return
+     */
+    static int getSelectedLine(List<String> lore) {
+        for (int i = 0; i < lore.size(); i++) {
+            String loreLine = lore.get(i);
+            if (loreLine.startsWith(ChatColor.AQUA + "[ ") && loreLine.endsWith(ChatColor.AQUA + " ]"))
+                return i;
+        }
+        return -1;
+    }
+
+    /**
      * Get Itemstack
+     *
      * @return
      */
     public ItemStack getItemStack() {
@@ -74,6 +140,7 @@ public class Gateway {
 
     /**
      * Get Player
+     *
      * @return
      */
     public Player getPlayer() {
@@ -82,6 +149,7 @@ public class Gateway {
 
     /**
      * Get Location
+     *
      * @return
      */
     public Location getLocation() {
@@ -90,6 +158,7 @@ public class Gateway {
 
     /**
      * Get List of blocks
+     *
      * @return
      */
     public List<Location> getBlockList() {
@@ -98,6 +167,7 @@ public class Gateway {
 
     /**
      * Get destination
+     *
      * @return
      */
     public Location getDestination() {
@@ -123,64 +193,5 @@ public class Gateway {
         blockList = null;
         task = null;
         itemStack = null;
-    }
-
-
-    /**
-     * Cehck if player is facing direction to use X Axis with Gateway
-     * @param player
-     * @return
-     */
-    static boolean xAxis(Player player) {
-        int degrees = (Math.round(player.getLocation().getYaw()) + 270) % 360;
-        return ((degrees > 67 && degrees <= 112) || (degrees > 247 && degrees <= 292));
-    }
-
-    /**
-     * Get Destination from item's lore
-     * @param itemStack
-     * @return
-     */
-    static Coords getDestination(ItemStack itemStack) {
-        if (itemStack != null && itemStack.hasItemMeta() && itemStack.getItemMeta().hasLore()) {
-            String loreLine = itemStack.getItemMeta().getLore().get(getSelectedLine(itemStack.getItemMeta().getLore()));
-            String loc = loreLine.substring(6, loreLine.length() - 4);
-            return new Coords(loc);
-        }
-        return null;
-    }
-
-    /**
-     * Get selected line by looking for the tags
-     * @param lore
-     * @param next
-     * @return
-     */
-    static List<String> setSelectedLine(List<String> lore, int next) {
-        int selected = getSelectedLine(lore);
-
-        if (selected != next) {
-            if (selected >= 0) {
-                lore.add(selected + 1, lore.get(selected).substring(4, lore.get(selected).length() - 4));
-                lore.remove(selected);
-            }
-            lore.add(next + 1, ChatColor.AQUA + "[ " + lore.get(next) + ChatColor.AQUA + " ]");
-            lore.remove(next);
-        }
-        return lore;
-    }
-
-    /**
-     * Get the index of the selected line by looking for the tags
-     * @param lore
-     * @return
-     */
-    static int getSelectedLine(List<String> lore) {
-        for (int i = 0; i < lore.size(); i++) {
-            String loreLine = lore.get(i);
-            if (loreLine.startsWith(ChatColor.AQUA + "[ ") && loreLine.endsWith(ChatColor.AQUA + " ]"))
-                return i;
-        }
-        return -1;
     }
 }
