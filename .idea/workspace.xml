@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23d60bac-4a44-4b50-8571-c96997f97256" name="Default Changelist" comment="" />
+    <list default="true" id="23d60bac-4a44-4b50-8571-c96997f97256" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/BimmCore.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateways.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateways.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Gateways/Gateways.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Gateways/Gateways.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bimmr/gateways/Gateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bimmr/gateways/Gateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bimmr/gateways/Gateways.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bimmr/gateways/Gateways.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +24,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -26,8 +38,9 @@
   </component>
   <component name="ProjectId" id="1SG5aPUcsSu14NsAFRe7MNvg3RB" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Projects/BimmCore" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -84,5 +97,16 @@
       <updated>1571177155954</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
